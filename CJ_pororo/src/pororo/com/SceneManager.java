@@ -271,11 +271,11 @@ public class SceneManager extends Container implements Runnable,
 		if (evt.getType() != KeyEvent.KEY_PRESSED)
 		{
 			System.out.println(" is not keypressed!");
-			return true;
+			return false;
 		}
 
 		if (curScene == null || load_kind)
-			return true;
+			return false;
 
 		int code = evt.getCode();
 		if (OverlappedUIManager.isNumberKey(evt))
@@ -311,14 +311,14 @@ public class SceneManager extends Container implements Runnable,
 			case KeyEvent.VK_F9:
 				System.out.println("normal keypressed");
 				keyPressed(evt);
-				return true;
+				return false;
 			default:
 				System.out.println("number keypressed");
 				if (code >= 48 && code <= 57)
 				{ // 숫자키
 					keyPressed(evt);
 				}
-				return true;
+				return false;
 		}
 		//!!!!!! 디폴트 리턴값은 false !!!!!!
 		// 리턴값이 true 면, 자기보다 더 낮은 priority 로는 내려보내지 않음! (뽀로로 resident 테스트시는 true 로!)

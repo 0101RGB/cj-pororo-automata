@@ -10,7 +10,7 @@ import javax.tv.xlet.XletStateChangeException;
 
 import pororo.com.log.Log;
 
-public class MainXlet implements Xlet, Runnable
+public class MainXlet implements Xlet
 {
 
 	public SceneManager sceneManager = null;
@@ -75,32 +75,32 @@ public class MainXlet implements Xlet, Runnable
 
 		// !!!!! resident 테스트 할때 !!!!!
 		/* (TEST) */
-		new Thread(this, "testMainThread").start();
+		//		new Thread(this, "testMainThread").start();
 
 		/* (NORMAL) */
-		//		System.out.println("######## pororo init start #########");
-		//		this.sceneManager = SceneManager.createInstance();
-		//		this.sceneManager.init(xletCtx);
+		System.out.println("######## pororo init start #########");
+		this.sceneManager = SceneManager.createInstance();
+		this.sceneManager.init(xletCtx);
 		/*-*/
 
 		Log.trace("startXlet============================1");
 	}
 
 	// resident 테스트 할때..
-	public void run()
-	{
-		try
-		{
-			Thread.sleep(150000);
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-		System.out.println("######## pororo thread start #######");
-		this.sceneManager = SceneManager.createInstance();
-		this.sceneManager.init(xletCtx);
-	}
+	//	public void run()
+	//	{
+	//		try
+	//		{
+	//			Thread.sleep(150000);
+	//		}
+	//		catch (InterruptedException e)
+	//		{
+	//			e.printStackTrace();
+	//		}
+	//		System.out.println("######## pororo thread start #######");
+	//		this.sceneManager = SceneManager.createInstance();
+	//		this.sceneManager.init(xletCtx);
+	//	}
 
 	public void pauseXlet()
 	{
